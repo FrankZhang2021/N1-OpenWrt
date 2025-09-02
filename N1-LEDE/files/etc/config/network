@@ -1,10 +1,11 @@
-
+#本地回环接口，用于路由器本身的回环通信（所有Linux系统都会有，不能删）
 config interface 'loopback'
 	option ifname 'lo'
 	option proto 'static'
 	option ipaddr '127.0.0.1'
 	option netmask '255.0.0.0'
 
+#开启CPU多核之间的负载分担，让网卡中断分配到多个CPU，提升转发性能
 config globals 'globals'
 	option packet_steering '1'
 
@@ -17,21 +18,24 @@ config interface 'lan'
     option type 'bridge'
     option ifname 'eth0'
 
-config device
-	option type 'bridge'
-	option name 'docker0'
+#定义了一个名为docker0的桥接设备，通常是 Docker 容器默认的虚拟网桥。
+#config device
+#	option type 'bridge'
+#	option name 'docker0'
 
-config interface 'lan6'
-	option proto 'dhcpv6'
-	option ifname '@lan'
-	option reqaddress 'try'
-	option reqprefix 'auto'
+#config interface 'lan6'
+#	option proto 'dhcpv6'
+#	option ifname '@lan'
+#	option reqaddress 'try'
+#	option reqprefix 'auto'
 
-config interface 'docker'
-	option ifname 'docker0'
-	option proto 'none'
-	option auto '0'
+#定义了一个docker接口，绑定到docker0网桥。
+#config interface 'docker'
+#	option ifname 'docker0'
+#	option proto 'none'
+#	option auto '0'
 
-config interface 'vpn0'
-	option ifname 'tun0'
-	option proto 'none'
+#定义了VPN虚拟接口tun0
+#config interface 'vpn0'
+#	option ifname 'tun0'
+#	option proto 'none'
