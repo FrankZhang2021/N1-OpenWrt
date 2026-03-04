@@ -9,8 +9,8 @@ function git_sparse_clone() {
   cd .. && rm -rf $repodir
 }
 
-# Default IP（192.168.1.1全局替换为192.168.10.2）
-sed -i 's/192.168.1.1/192.168.10.2/g' package/base-files/files/bin/config_generate
+# Default IP（192.168.1.1全局替换为192.168.5.2）
+sed -i 's/192.168.1.1/192.168.5.2/g' package/base-files/files/bin/config_generate
 
 # Add packages
 #添加科学上网源

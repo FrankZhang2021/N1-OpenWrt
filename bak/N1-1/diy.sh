@@ -47,16 +47,19 @@ rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-design
 rm -rf feeds/luci/applications/luci-app-argon-config
 rm -rf feeds/luci/applications/luci-app-design-config
+
 #删除默认的softethvpn
 #rm -rf feeds/packages/net/softethervpn5
 #rm -rf feeds/luci/applications/luci-app-softethervpn
+
 #删除默认的openvpn
 #rm -rf feeds/packages/net/openvpn
 #rm -rf feeds/packages/net/openvpn-easy-rsa
 #rm -rf feeds/luci/applications/luci-app-openvpn-server
+
 #删除默认的samba4
 #rm -rf feeds/packages/net/samba4
 #rm -rf feeds/luci/applications/luci-app-samba4 luci-app-samba4
 
 # Default IP
-sed -i 's/192.168.1.1/192.168.2.2/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.5.2/g' package/base-files/files/bin/config_generate
